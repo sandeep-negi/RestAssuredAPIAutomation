@@ -1,0 +1,9 @@
+[
+  {"testId": "@TC001","email": "tuser3766+abcd@gmail.com", "password": "123456"},
+  {"testId": "@TC002","email": "autox@gmail.com", "password": "123456"},
+  {"testId": "@TC003","email": "pk+plac_prod@splashmath.com", "password": "123456", "data": {"klass": "FirstKlass"}},
+  {"testId": "@TC004","email": "", "password": ""},
+  {"testId": "@TC005","email": "tuser3766+abcd@gmail.com", "password": "123456"},
+  {"testId": "@TC006","email": "tuser3766+abcd@gmail.com", "password": "123456"},
+  {"testId": "@TC007","email": "tuser3766+abcd@gmail.com", "password": "123456"}
+]

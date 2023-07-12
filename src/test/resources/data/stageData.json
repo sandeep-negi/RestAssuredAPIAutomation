@@ -1,0 +1,19 @@
+[
+  {"testId": "@TC001","email": "auto_teacher+db12@splashlearn.com", "password": "123456"},
+  {"testId": "@TC002","email": "autox@gmail.com", "password": "123456"},
+  {"testId": "@TC003","email": "auto_teacher+db12@splashlearn.com", "password": "1234"},
+  {"testId": "@TC004","email": "", "password": ""},
+  {"testId":"@TC005","email":"auto_teacher+db12@splashlearn.com","password":"123456","data":{"desc":"valid data","klassName":"First","gradeCode":"1","subjectPreferenceCd":"2"}},
+  {"testId":"@TC006","email":"auto_teacher+db12@splashlearn.com","password":"123456","data":{"desc":"InValid GradeCode","klassName":"First","gradeCode":"8","subjectPreferenceCd":"2"}},
+  {"testId":"@TC007","email":"auto_teacher+db12@splashlearn.com","password":"123456","data":{"desc":"Without KlassName","gradeCode":"8","subjectPreferenceCd":"2"}},
+  {"testId":"@TC008","email":"auto_teacher+db12@splashlearn.com","password":"123456","data":{"desc":"Without GradeCode","klassName":"First","subjectPreferenceCd":"2"}},
+  {"testId":"@TC009","email":"auto_teacher+db12@splashlearn.com","password":"123456","data":{"desc":"Without SubjectCode","klassName":"First","gradeCode":"8"}},
+  {"testId":"@TC010","email":"auto_teacher+persona1@splashlearn.com","password":"123456","data":{"desc":"DownloadWorksheet with Valid Data","entityId":"5919","entityType":"SearchContent"}},
+  {"testId":"@TC011","email":"auto_teacher+persona1@splashlearn.com","password":"123456","data":{"desc":"DownloadWorksheet with Valid Data","entityId":"XXXX","entityType":"SearchContent"}},
+  {"testId":"@TC012","email":"auto_teacher+persona1@splashlearn.com","password":"123456","data":{"desc":"DownloadWorksheet with Valid Data","entityId":"XXXX","entityType":"Jackson"}},
+  {"testId":"@TC013","email":"auto_teacher+persona1@splashlearn.com","password":"123456","data":{"desc":"DownloadWorksheet with Valid Data","entityId":"","entityType":"Jackson"}},
+  {"testId":"@TC014","email":"auto_teacher+persona1@splashlearn.com","password":"123456","data":{"desc":"DownloadWorksheet with Valid Data","entityId":"5919","entityType":""}},
+  {"testId":"@TC015","email":"auto_teacher+persona1@splashlearn.com","password":"123456","data":{"desc":"DownloadWorksheet with Valid Data","entityType":""}},
+  {"testId":"@TC016","email":"auto_teacher+persona1@splashlearn.com","password":"123456","data":{"desc":"DownloadWorksheet with Valid Data","entityId":"5919"}}
+
+]
