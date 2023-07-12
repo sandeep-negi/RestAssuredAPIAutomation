@@ -28,17 +28,6 @@ public class ConfigLoader {
         }
         return configLoader;
     }
-
-    public String getSetuBaseUrl(){
-        String prop = properties.getProperty("setuBaseUrl");
-        if(prop != null) return prop;
-        else throw new RuntimeException("Property baseUrl is not specified in the config.properties file");
-    }
-    public String getSpotifyBaseUrl(){
-        String prop = properties.getProperty("spotifyBaseUrl");
-        if(prop != null) return prop;
-        else throw new RuntimeException("Property baseUrl is not specified in the config.properties file");
-    }
     public String getSplashBaseUrl(){
         String prop = properties.getProperty("splashBaseUrl");
         if(prop != null) return prop;
