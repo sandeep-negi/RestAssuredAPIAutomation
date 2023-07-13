@@ -2,6 +2,7 @@ package com.sp.tests;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.sp.api.LoginApi;
+import com.sp.constants.StatusCode;
 import com.sp.pojo.User;
 import com.sp.reporting.Setup;
 import com.sp.utils.JsonUtility;
@@ -16,6 +17,6 @@ public class LoginTest{
         ExtentTest test = Setup.extentReports.createTest("Verify Uer login with valid Data").assignCategory("User Login");
         Setup.extentTest.set(test);
         Response response = LoginApi.doLogin(user);
-        Assert.assertTrue(response.statusCode() == 200 || response.statusCode() == 301);
+        Assert.assertTrue(response.statusCode() == StatusCode.SUCCESS.code || response.statusCode() == 301);
     }
 }

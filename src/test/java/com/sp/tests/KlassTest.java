@@ -3,6 +3,7 @@ package com.sp.tests;
 import com.aventstack.extentreports.ExtentTest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.sp.api.KlassApi;
+import com.sp.constants.StatusCode;
 import com.sp.pojo.User;
 import com.sp.pojo.klass.CreateKlassResponse;
 import com.sp.reporting.Setup;
@@ -20,10 +21,10 @@ public class KlassTest {
 
         Response response = KlassApi.createKlass(user);
         CreateKlassResponse createKlassResponse = response.as(CreateKlassResponse.class);
-        Assert.assertEquals(response.statusCode(), 201);
+        Assert.assertEquals(response.statusCode(), StatusCode.CREATED.code);
 
         Response deleteKlassResponse = KlassApi.deleteKlass(user, createKlassResponse.getId());
-        Assert.assertEquals(deleteKlassResponse.statusCode(), 200);
+        Assert.assertEquals(deleteKlassResponse.statusCode(), StatusCode.SUCCESS.code);
     }
 
     @Test(groups = {"@smoke","@staging","@prod", "@Klass"})
@@ -32,7 +33,7 @@ public class KlassTest {
         ExtentTest test = Setup.extentReports.createTest("Verify Create Klass Api Using Invalid GradeCode").assignCategory("Create Klass");
         Setup.extentTest.set(test);
         Response response = KlassApi.createKlass(user);
-        Assert.assertEquals(response.statusCode(), 400);
+        Assert.assertEquals(response.statusCode(), StatusCode.BAD_REQUEST.code);
     }
     @Test(groups = {"@staging","@prod", "@Klass"})
     public void verifyCreateKlassWithoutKlassName() throws JsonProcessingException {
@@ -40,7 +41,7 @@ public class KlassTest {
         ExtentTest test = Setup.extentReports.createTest("Verify Create Klass Api without KlassName").assignCategory("Create Klass");
         Setup.extentTest.set(test);
         Response response = KlassApi.createKlass(user);
-        Assert.assertEquals(response.statusCode(), 400);
+        Assert.assertEquals(response.statusCode(), StatusCode.BAD_REQUEST.code);
     }
     @Test(groups = {"@staging","@prod", "@Klass"})
     public void verifyCreateKlassWithoutGradeCode() throws JsonProcessingException {
@@ -48,7 +49,7 @@ public class KlassTest {
         ExtentTest test = Setup.extentReports.createTest("Verify Create Klass Api without GradeKode").assignCategory("Create Klass");
         Setup.extentTest.set(test);
         Response response = KlassApi.createKlass(user);
-        Assert.assertEquals(response.statusCode(), 400);
+        Assert.assertEquals(response.statusCode(), StatusCode.BAD_REQUEST.code);
     }
     @Test(groups = {"@staging","@prod", "@Klass"})
     public void verifyCreateKlassWithoutSubjectCode() throws JsonProcessingException {
@@ -56,6 +57,6 @@ public class KlassTest {
         ExtentTest test = Setup.extentReports.createTest("Verify Create Klass Api without SubjectCode").assignCategory("Create Klass");
         Setup.extentTest.set(test);
         Response response = KlassApi.createKlass(user);
-        Assert.assertEquals(response.statusCode(), 400);
+        Assert.assertEquals(response.statusCode(), StatusCode.BAD_REQUEST.code);
     }
 }

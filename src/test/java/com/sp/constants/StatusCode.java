@@ -1,17 +1,23 @@
 package com.sp.constants;
 
 public enum StatusCode {
-    CODE_200(200),
-    CODE_201(201),
-    CODE_400(400),
-    CODE_401(401);
+    SUCCESS(200,"The request succeeded"),
 
-    private int code;
-    StatusCode(int code) {
-        this.code = code ;
-    }
+    CREATED(201,"A new resource was created"),
 
-    public int getCode(){
-        return code;
+    BAD_REQUEST(400,"Missing required field: name"),
+
+    UNAUTHORIZED(401,"Invalid Access Token"),
+
+    NOT_FOUND(404,"Cannot Find Requested Resource"),
+
+    NO_CONTENT(204,"No content to send in the response body");
+
+    public final int code;
+    public final String msg;
+
+    StatusCode(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
     }
 }

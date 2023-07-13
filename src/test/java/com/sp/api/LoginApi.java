@@ -1,6 +1,7 @@
 package com.sp.api;
 
 import com.sp.constants.EndPoints;
+import com.sp.constants.StatusCode;
 import com.sp.pojo.User;
 import com.sp.reporting.ReportLogBuilder;
 import com.sp.rest.RestActions;
@@ -43,7 +44,7 @@ public class LoginApi {
         ReportLogBuilder.printRequestLogInReport(restDTO);
         ReportLogBuilder.printResponseLogInReport(response);
 
-        if (!(response.statusCode() == 200 || response.statusCode() == 301)) {
+        if (!(response.statusCode() == StatusCode.SUCCESS.code || response.statusCode() == 301)) {
             throw new RuntimeException("Invalid Response");
         } else {
             return response;

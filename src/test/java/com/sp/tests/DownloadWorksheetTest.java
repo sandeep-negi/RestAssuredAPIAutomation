@@ -3,6 +3,7 @@ package com.sp.tests;
 import com.aventstack.extentreports.ExtentTest;
 import com.sp.api.DownloadWorksheetApi;
 import com.sp.api.ProfileApi;
+import com.sp.constants.StatusCode;
 import com.sp.pojo.User;
 import com.sp.pojo.profile.WebProfileResponse;
 import com.sp.reporting.Setup;
@@ -22,7 +23,7 @@ public class DownloadWorksheetTest{
         WebProfileResponse webProfileResponse = getProfileResponse.as(WebProfileResponse.class);
 
         Response downloadWorksheetResponse = DownloadWorksheetApi.downloadWorksheet(user, webProfileResponse.getTeacher().getTeacherId());
-        Assert.assertEquals(downloadWorksheetResponse.statusCode(), 201, "Unable to Download Worksheet");
+        Assert.assertEquals(downloadWorksheetResponse.statusCode(), StatusCode.CREATED.code, "Unable to Download Worksheet");
 
     }
 
@@ -36,7 +37,7 @@ public class DownloadWorksheetTest{
         WebProfileResponse webProfileResponse = getProfileResponse.as(WebProfileResponse.class);
 
         Response downloadWorksheetResponse = DownloadWorksheetApi.downloadWorksheet(user, webProfileResponse.getTeacher().getTeacherId());
-        Assert.assertEquals(downloadWorksheetResponse.statusCode(), 400, "Worksheet Downloaded");
+        Assert.assertEquals(downloadWorksheetResponse.statusCode(), StatusCode.BAD_REQUEST.code, "Worksheet Downloaded");
     }
 
     @Test(groups = {"@smoke", "@staging", "@prod", "@download_worksheet"})
@@ -49,7 +50,7 @@ public class DownloadWorksheetTest{
         WebProfileResponse webProfileResponse = getProfileResponse.as(WebProfileResponse.class);
 
         Response downloadWorksheetResponse = DownloadWorksheetApi.downloadWorksheet(user, webProfileResponse.getTeacher().getTeacherId());
-        Assert.assertEquals(downloadWorksheetResponse.statusCode(), 400, "Worksheet Downloaded");
+        Assert.assertEquals(downloadWorksheetResponse.statusCode(), StatusCode.BAD_REQUEST.code, "Worksheet Downloaded");
     }
 
     @Test(groups = {"@smoke", "@staging", "@prod", "@download_worksheet"})
@@ -62,7 +63,7 @@ public class DownloadWorksheetTest{
         WebProfileResponse webProfileResponse = getProfileResponse.as(WebProfileResponse.class);
 
         Response downloadWorksheetResponse = DownloadWorksheetApi.downloadWorksheet(user, webProfileResponse.getTeacher().getTeacherId());
-        Assert.assertEquals(downloadWorksheetResponse.statusCode(), 400, "Worksheet Downloaded");
+        Assert.assertEquals(downloadWorksheetResponse.statusCode(), StatusCode.BAD_REQUEST.code, "Worksheet Downloaded");
     }
 
     @Test(groups = {"@staging", "@prod", "@download_worksheet"})
@@ -75,7 +76,7 @@ public class DownloadWorksheetTest{
         WebProfileResponse webProfileResponse = getProfileResponse.as(WebProfileResponse.class);
 
         Response downloadWorksheetResponse = DownloadWorksheetApi.downloadWorksheet(user, webProfileResponse.getTeacher().getTeacherId());
-        Assert.assertEquals(downloadWorksheetResponse.statusCode(), 400, "Worksheet Downloaded");
+        Assert.assertEquals(downloadWorksheetResponse.statusCode(), StatusCode.BAD_REQUEST.code, "Worksheet Downloaded");
     }
     @Test(groups = {"@staging", "@prod", "@download_worksheet"})
     public void verifyDownloadWorksheetWithoutPassingEntityId() {
@@ -87,7 +88,7 @@ public class DownloadWorksheetTest{
         WebProfileResponse webProfileResponse = getProfileResponse.as(WebProfileResponse.class);
 
         Response downloadWorksheetResponse = DownloadWorksheetApi.downloadWorksheet(user, webProfileResponse.getTeacher().getTeacherId());
-        Assert.assertEquals(downloadWorksheetResponse.statusCode(), 400, "Worksheet Downloaded");
+        Assert.assertEquals(downloadWorksheetResponse.statusCode(), StatusCode.BAD_REQUEST.code, "Worksheet Downloaded");
     }
     @Test(groups = {"@staging", "@prod", "@download_worksheet"})
     public void verifyDownloadWorksheetWithoutPassingEntityType() {
@@ -99,6 +100,6 @@ public class DownloadWorksheetTest{
         WebProfileResponse webProfileResponse = getProfileResponse.as(WebProfileResponse.class);
 
         Response downloadWorksheetResponse = DownloadWorksheetApi.downloadWorksheet(user, webProfileResponse.getTeacher().getTeacherId());
-        Assert.assertEquals(downloadWorksheetResponse.statusCode(), 400, "Worksheet Downloaded");
+        Assert.assertEquals(downloadWorksheetResponse.statusCode(), StatusCode.BAD_REQUEST.code, "Worksheet Downloaded");
     }
 }
