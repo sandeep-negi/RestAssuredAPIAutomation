@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="API Automation Regression Suite" >
+<suite name="API Automation Regression Suite">
     <listeners>
         <listener class-name="com.sp.reporting.Setup"></listener>
         <listener class-name="com.sp.utils.RetryListener"></listener>

@@ -8,11 +8,11 @@ public class ReportLogBuilder {
         ExtentReportManager.logInfoDetails("URL is " + restDTO.getBaseUrl() + restDTO.getBasePath());
         ExtentReportManager.logInfoDetails("Method is " + restDTO.getMethod());
 
-        if(!restDTO.getHeaders().isEmpty()){
+        if (!restDTO.getHeaders().isEmpty()) {
             ExtentReportManager.logInfoDetails("Headers are ");
             ExtentReportManager.logHeaders(restDTO.getHeaders());
         }
-        if(restDTO.getBody()!= null){
+        if (restDTO.getBody() != null) {
             ExtentReportManager.logInfoDetails("Request body is ");
             ExtentReportManager.logJson(restDTO.getBody());
         }

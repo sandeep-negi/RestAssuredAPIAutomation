@@ -11,10 +11,10 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WebProfileResponse {
-    private Teacher teacher ;
+    private Teacher teacher;
     private List<Klasses> klasses;
     @JsonProperty("ab_Tests")
     private ABTests abTests;
     @JsonProperty("is_active_springboard_contest")
-    private boolean isActiveSpringboardContest ;
+    private boolean isActiveSpringboardContest;
 }

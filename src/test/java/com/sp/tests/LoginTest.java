@@ -10,10 +10,10 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTest{
-    @Test(groups = {"@regression","@smoke","@staging","@prod", "@TC001"})
+public class LoginTest {
+    @Test(groups = {"@regression", "@smoke", "@staging", "@prod", "@TC001"})
     public void verifyLoginUsingValidData() {
-        User user  = JsonUtility.getUserData("@TC001");
+        User user = JsonUtility.getUserData("@TC001");
         ExtentTest test = Setup.extentReports.createTest("Verify Uer login with valid Data").assignCategory("User Login");
         Setup.extentTest.set(test);
         Response response = LoginApi.doLogin(user);

@@ -25,5 +25,5 @@ public class CreateKlassResponse {
     @JsonProperty("teacher_id")
     private String teacherId;
     @JsonProperty("co_teaching_klass")
-    private boolean coTeachingKlass ;
+    private boolean coTeachingKlass;
 }

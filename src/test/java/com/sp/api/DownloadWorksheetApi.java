@@ -40,7 +40,7 @@ public class DownloadWorksheetApi {
         cookies.put(JWT_AUTHORIZATION, jwtToken);
         header.put(XCSRF_TOKEN_NAME, csrfToken);
         header.put("content-type", "application/json");
-        pathParam.put("userId",userId);
+        pathParam.put("userId", userId);
 
         RestDTO restDTO = new RestDTO();
         restDTO.setBaseUrl(ConfigLoader.getInstance().getSchoolServiceBaseUrl());
@@ -57,12 +57,13 @@ public class DownloadWorksheetApi {
 
         return response;
     }
+
     public static String getRequestBody(User user) {
         DownloadWorksheetRequest dwl = new DownloadWorksheetRequest();
-        if(user.getData().get("entityId")!=null){
+        if (user.getData().get("entityId") != null) {
             dwl.setEntityId((String) user.getData().get("entityId"));
         }
-        if(user.getData().get("entityType")!=null){
+        if (user.getData().get("entityType") != null) {
             dwl.setEntityType((String) user.getData().get("entityType"));
         }
         ObjectMapper objectMapper = new ObjectMapper();

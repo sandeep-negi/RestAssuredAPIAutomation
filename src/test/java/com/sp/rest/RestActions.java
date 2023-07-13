@@ -7,7 +7,7 @@ public class RestActions {
 
     public Response send(RestDTO restDTO) {
         // Check because You can either send form parameters OR body content in POST, not both!!
-        if(restDTO.getFormParams().size()!=0){
+        if (restDTO.getFormParams().size() != 0) {
             return RestAssured.given()
                     .baseUri(restDTO.getBaseUrl())
                     .basePath(restDTO.getBasePath())
@@ -21,8 +21,7 @@ public class RestActions {
                     .request(String.valueOf(restDTO.getMethod()))
                     .then().log().all()
                     .extract().response();
-        }
-        else{
+        } else {
             return RestAssured.given()
                     .baseUri(restDTO.getBaseUrl())
                     .basePath(restDTO.getBasePath())

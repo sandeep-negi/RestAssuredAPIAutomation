@@ -18,7 +18,7 @@ public class PropertyUtils {
                 reader.close();
             } catch (IOException e) {
                 e.printStackTrace();
-                throw new RuntimeException("Failed to load properties file "+ filePath);
+                throw new RuntimeException("Failed to load properties file " + filePath);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

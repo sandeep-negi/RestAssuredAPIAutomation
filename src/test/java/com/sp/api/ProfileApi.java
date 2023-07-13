@@ -16,7 +16,7 @@ import java.util.Map;
 import static com.sp.constants.AppConstants.*;
 
 public class ProfileApi {
-    public static Response getWebProfile(User user){
+    public static Response getWebProfile(User user) {
         String sessionId;
         String jwtToken;
         Response response;

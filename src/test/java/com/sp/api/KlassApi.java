@@ -55,7 +55,8 @@ public class KlassApi {
 
         return response;
     }
-    public static Response deleteKlass(User user, String klassId){
+
+    public static Response deleteKlass(User user, String klassId) {
         String sessionId;
         String jwtToken;
         Response response;
@@ -86,18 +87,18 @@ public class KlassApi {
         response = new RestActions().send(restDTO);
         ReportLogBuilder.printRequestLogInReport(restDTO);
         ReportLogBuilder.printResponseLogInReport(response);
-        return  response;
+        return response;
     }
 
     public static String getRequestBody(User user) throws JsonProcessingException {
         CreateKlassRequest kl = new CreateKlassRequest();
-        if(user.getData().get("klassName")!=null){
+        if (user.getData().get("klassName") != null) {
             kl.setKlassName((String) user.getData().get("klassName"));
         }
-        if(user.getData().get("gradeCode")!=null){
+        if (user.getData().get("gradeCode") != null) {
             kl.setGradeCode((String) user.getData().get("gradeCode"));
         }
-        if(user.getData().get("subjectPreferenceCd")!=null){
+        if (user.getData().get("subjectPreferenceCd") != null) {
             kl.setSubjectPreferenceCd((String) user.getData().get("subjectPreferenceCd"));
         }
 

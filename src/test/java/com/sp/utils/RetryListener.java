@@ -11,7 +11,7 @@ public class RetryListener implements IAnnotationTransformer {
     public void transform(ITestAnnotation testAnnotation,
                           Class testClass,
                           Constructor testConstructor,
-                          Method testMethod){
+                          Method testMethod) {
         testAnnotation.setRetryAnalyzer(FailRetry.class); // Pass Class Name i.e FailRetry ClassName
 
     }
