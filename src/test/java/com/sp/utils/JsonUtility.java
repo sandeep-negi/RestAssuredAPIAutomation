@@ -3,7 +3,6 @@ package com.sp.utils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sp.constants.EnvType;
 import com.sp.pojo.User;
-import org.testng.Assert;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,15 +11,19 @@ import java.util.List;
 import java.util.Map;
 
 public class JsonUtility {
-    public static User getUserData(String key){
+    public static User getUserData(String key) {
+        /**
+         *  ObjectMapper provides functionality for reading and writing JSON,
+         *  either to and from basic POJOs (Plain Old Java Objects)
+         */
         ObjectMapper objectMapper = new ObjectMapper();
         List<User> userData = null;
         Map<String, User> mapUserData = new HashMap<>();
-        Map<String, String> map = new HashMap<>();
         File file;
         String env = System.getProperty("env", String.valueOf(EnvType.STAGE));
-        switch (EnvType.valueOf(env)){
-            case PRE_PROD -> file = new File(System.getProperty("user.dir") + "/src/test/resources/data/preprodUserData.json");
+        switch (EnvType.valueOf(env)) {
+            case PRE_PROD ->
+                    file = new File(System.getProperty("user.dir") + "/src/test/resources/data/preprodUserData.json");
             case PROD -> file = new File(System.getProperty("user.dir") + "/src/test/resources/data/prodUserData.json");
             case STAGE -> file = new File(System.getProperty("user.dir") + "/src/test/resources/data/stageData.json");
             default -> throw new IllegalStateException("INVALID Env: " + env);
@@ -33,28 +36,18 @@ public class JsonUtility {
             // Handle exception appropriately
         }
 
-        boolean flag = false ;
+        boolean flag = false;
         assert userData != null;
-        for(User user : userData) {
-
-            if(user.getTestId()!= null && user.getTestId().equalsIgnoreCase(key)){
-                flag = true ;
-                map.put("testId", user.getTestId());
-                if (user.getEmail() != null)
-                    map.put("email", user.getEmail());
-                if (user.getPassword() != null)
-                    map.put("password", user.getPassword());
-
-                for(Map.Entry<String, Object> entry : user.getData().entrySet()){
-                    map.put(entry.getKey(), entry.getValue().toString());
-                }
+        for (User user : userData) {
+            if (user.getTestId() != null && user.getTestId().equalsIgnoreCase(key)) {
+                flag = true;
                 mapUserData.put(user.getTestId(), user);
             }
         }
-        if(flag) {
+        if (flag) {
             return mapUserData.get(key);
-        }else{
-            return null ;
+        } else {
+            return null;
         }
     }
 }

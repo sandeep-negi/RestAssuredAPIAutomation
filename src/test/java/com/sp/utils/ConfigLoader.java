@@ -16,7 +16,7 @@ public class ConfigLoader {
         String env = System.getProperty("env", String.valueOf(STAGE));
         switch (EnvType.valueOf(env)){
             case PRE_PROD -> properties = PropertyUtils.propertyLoader("src/test/resources/config/preprod_config.properties");
-            case PROD -> properties = PropertyUtils.propertyLoader("src/test/resources//config/prod_config.properties");
+            case PROD -> properties = PropertyUtils.propertyLoader("src/test/resources/config/prod_config.properties");
             case STAGE -> properties = PropertyUtils.propertyLoader("src/test/resources/config/stage_config.properties");
             default -> throw new IllegalStateException("INVALID ENV: " + env);
         }
