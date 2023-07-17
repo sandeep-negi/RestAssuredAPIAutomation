@@ -42,6 +42,7 @@ public class JsonUtility {
             if (user.getTestId() != null && user.getTestId().equalsIgnoreCase(key)) {
                 flag = true;
                 mapUserData.put(user.getTestId(), user);
+                break;
             }
         }
         if (flag) {
